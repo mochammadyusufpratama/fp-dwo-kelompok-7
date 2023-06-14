@@ -1,0 +1,58 @@
+<Schema name="FPdwo">
+	<Dimension type="StandardDimension" name="Produk">
+		<Hierarchy name="dim_produk" hasAll="true" allMemberName="Semua Produk">
+			<Table name="dim_produk">
+			</Table>
+			<Level name="Kategori" table="dim_produk" column="ID_Produk" nameColumn="Nama_Kategori" ordinalColumn="ID_Produk" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+			</Level>
+			<Level name="Produk" table="dim_produk" column="ID_Produk" nameColumn="Nama_Produk" ordinalColumn="Nama_Produk" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+			</Level>
+		</Hierarchy>
+	</Dimension>
+	<Dimension type="StandardDimension" name="Ekspedisi">
+		<Hierarchy name="dim_ekspedisi" hasAll="true" allMemberName="Semua Ekspedisi">
+			<Table name="dim_ekspedisi">
+			</Table>
+			<Level name="Ekspedisi" table="dim_ekspedisi" column="ID_Ekspedisi" nameColumn="Nama_Ekspedisi" ordinalColumn="ID_Ekspedisi" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+			</Level>
+		</Hierarchy>
+	</Dimension>
+	<Dimension type="StandardDimension" name="Alamat">
+		<Hierarchy name="dim_alamat" hasAll="true" allMemberName="Semua Alamat">
+			<Table name="dim_alamat">
+			</Table>
+			<Level name="Negara" table="dim_alamat" column="Negara" nameColumn="Negara" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+			</Level>
+			<Level name="Provinsi" table="dim_alamat" column="Provinsi" nameColumn="Provinsi" ordinalColumn="Provinsi" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+			</Level>
+			<Level name="Kota" table="dim_alamat" column="Kota" nameColumn="Kota" ordinalColumn="Kota" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+			</Level>
+			<Level name="Alamat" table="dim_alamat" column="ID_Alamat" nameColumn="Alamat" ordinalColumn="Alamat" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+			</Level>
+		</Hierarchy>
+	</Dimension>
+	<Dimension type="StandardDimension" name="Toko">
+		<Hierarchy name="dim_toko" hasAll="true" allMemberName="Semua Toko">
+			<Table name="dim_toko">
+			</Table>
+			<Level name="Toko" table="dim_toko" column="ID_Toko" nameColumn="Nama_Toko" ordinalColumn="ID_Toko" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+			</Level>
+		</Hierarchy>
+	</Dimension>
+	<Cube name="Penjualan" cache="true" enabled="true">
+		<Table name="fakta_penjualan">
+		</Table>
+		<DimensionUsage source="Produk" name="Produk" foreignKey="ID_Produk">
+		</DimensionUsage>
+		<DimensionUsage source="Ekspedisi" name="Ekspedisi" foreignKey="ID_Ekspedisi">
+		</DimensionUsage>
+		<DimensionUsage source="Alamat" name="Alamat" foreignKey="ID_Alamat">
+		</DimensionUsage>
+		<DimensionUsage source="Toko" level="" usagePrefix="" name="Toko" caption="" foreignKey="Toko">
+		</DimensionUsage>
+		<Measure name="Unit Penjualan" column="Jumlah" formatString="#,###" aggregator="sum" visible="true">
+		</Measure>
+		<Measure name="Total Penjualan" column="Total Harga" formatString="$ #,###" aggregator="sum" visible="true">
+		</Measure>
+	</Cube>
+</Schema>

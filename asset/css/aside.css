@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Raleway:wght@200;300;400;500;600;700&display=swap');
+
+main aside {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #eee;
+    padding: 0px 30px;
+}
+
+aside h2 {
+    margin: 0;
+    margin-top: 40px;
+    text-align: center;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+aside ul li {
+    width: 100%;
+    display: flex;
+}
+
+aside ul li a {
+    width: 100%;
+    letter-spacing: 2px;
+    padding: 20px 10px;
+    text-decoration: none;
+    color: #121212;
+    box-shadow: inset 0px 0px 0px #121212;
+    transition: all 0.3s ease-in-out;
+}
+
+aside ul li a:hover {
+    box-shadow: inset 0px -2px 0px #121212;
+}
+
+aside .user {
+    margin-bottom: 40px;
+    color: #414141;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+aside .user img {
+    height: 30px;
+}
+
+aside .user p {
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+aside .user a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #414141;
+    gap: 15px;
+    letter-spacing: 1px;
+    padding: 10px;
+}
+
+aside .user a img {
+    height: 18px;
+}
